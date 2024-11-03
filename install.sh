@@ -2,22 +2,19 @@
 echo "Installing VS Code"
 sudo snap install --classic code
 
-
 #For Dropbox (Optional)
 echo "Installing Dropbox"
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
 ~/.dropbox-dist/dropboxd
 
-
 #Installing curl and git
 echo "Installing curl and git"
 sudo apt-get install -qq curl git > /dev/null
 
-
 #Installing Node JS
 echo "Installing Node.js"
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -qq nodejs
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 #Installing NPM Packages
 echo "Installing npm"
@@ -34,4 +31,12 @@ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb
 /etc/apt/sources.list.d/mongodb-org-5.0.list
 sudo apt-get update
 sudo apt-get install -y mongodb-org
+
+# Installing MySQL
+echo "Installing MySQL"
+sudo apt update
+sudo apt install mysql-server
+
+# Installing DBeaver
+sudo snap install dbeaver-ce
 
